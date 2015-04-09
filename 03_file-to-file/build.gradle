@@ -1,0 +1,17 @@
+apply plugin: 'application'
+
+def defaultEncoding = 'UTF-8'
+compileJava.options.encoding = defaultEncoding
+
+sourceCompatibility = targetCompatibility = 1.8
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile 'org.apache.camel:camel-core:2.15.1'
+  compile 'org.slf4j:slf4j-simple:1.6.6'
+}
+
+mainClassName = 'camel.filetofile.Main'
