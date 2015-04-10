@@ -1,0 +1,21 @@
+apply plugin: 'application'
+
+def defaultEncoding = 'UTF-8'
+compileJava.options.encoding = defaultEncoding
+
+sourceCompatibility = targetCompatibility = 1.8
+
+repositories {
+  jcenter()
+}
+
+project.ext {
+  camelVersion = '2.15.1'
+}
+dependencies {
+  compile "org.apache.camel:camel-http4:$camelVersion"
+  compile "org.apache.camel:camel-http:$camelVersion"
+  compile 'org.slf4j:slf4j-simple:1.6.6'
+}
+
+mainClassName = 'camel.downloader.App'
