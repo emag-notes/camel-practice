@@ -1,0 +1,32 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE'
+  }
+  configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+  }
+}
+
+apply plugin: 'spring-boot'
+
+def defaultEncoding = 'UTF-8'
+compileJava.options.encoding = defaultEncoding
+
+sourceCompatibility = targetCompatibility = 1.8
+
+repositories {
+  jcenter()
+}
+
+project.ext {
+  camelVersion = '2.15.2'
+}
+dependencies {
+  compile "org.apache.camel:camel-spring-boot:$camelVersion"
+  compile "org.apache.camel:camel-quartz2:$camelVersion"
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-undertow'
+}
